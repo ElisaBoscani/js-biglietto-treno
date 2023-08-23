@@ -15,19 +15,23 @@ console.log(kilometers);
 const userAge = Number(prompt("Scrivi la tua età"));
 console.log(userAge);
 //calcola il prezo del viaggio in base ai chilometri
-// in base all'età si aplicheranno 2 scontistiche
+
 const ticketPrice = kilometers * 0.21;
 
 console.log(ticketPrice);
+// in base all'età si aplicheranno 2 scontistiche
 let total;
 
 if (userAge > 65) {
-  total = ticketPrice * (40 / 100);
+  let discount = ticketPrice * (40 / 100);
+  total = ticketPrice - discount;
 } else if (userAge < 18) {
-  total = ticketPrice * (20 / 100);
+  let discount = ticketPrice * (20 / 100);
+  total = ticketPrice - discount;
 } else {
   total = ticketPrice;
 }
+//totale con massimo 2 decimali
 let finalPrice = total.toFixed(2);
 console.log(total);
 console.log(finalPrice);
