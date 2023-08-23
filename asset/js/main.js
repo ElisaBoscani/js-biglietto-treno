@@ -16,7 +16,10 @@ console.log(kilometers);
 
 const distance = document.getElementById("kilometer");
 distance.innerHTML = kilometers;
-
+if (isNaN(kilometers)) {
+  alert("devi scrivere una cifra numerica");
+  distance.innerHTML = "manca la cifra";
+}
 //chiedi l'età del passeggero
 
 const userAge = Number(prompt("Scrivi la tua età"));
@@ -26,17 +29,17 @@ console.log(userAge);
 
 const age = document.getElementById("age");
 age.innerHTML = userAge;
-
-//alert se non scrivi una cifra
-
-if (isNaN(kilometers) && isNaN(userAge)) {
+if (isNaN(userAge)) {
   alert("devi scrivere una cifra numerica");
+  age.innerHTML = "manca la cifra";
 }
+//alert se non scrivi una cifra
 
 //calcola il prezo del viaggio in base ai chilometri
 
 const ticketPrice = kilometers * 0.21;
 console.log(ticketPrice);
+
 // in base all'età si aplicheranno 2 scontistiche
 
 let total;
@@ -60,3 +63,7 @@ console.log(finalPrice);
 //stampare in pagina
 const cost = document.getElementById("cost");
 cost.innerHTML = finalPrice;
+
+if (isNaN(kilometers) || isNaN(userAge)) {
+  cost.innerHTML = "non puo essere calocolato";
+}
